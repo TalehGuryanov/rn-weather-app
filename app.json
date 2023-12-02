@@ -31,6 +31,14 @@
         "projectId": "e2992b7d-80db-408b-9b44-f57f887408ef"
       }
     },
-    "owner": "taleh"
+    "owner": "taleh",
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
+        }
+      ]
+    ]
   }
 }
