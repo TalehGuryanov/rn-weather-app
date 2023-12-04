@@ -40,7 +40,12 @@ export default function App() {
   
   return (
       <View style={styles.container}>
-        {isLoading ? <Loading/> : <Weather temp={Math.round(data.main.temp)} condition={data.weather[0].main}/>}
+        {isLoading ? <Loading/> : <Weather
+            temperature={data.main}
+            weatherOptions={data.weather[0]}
+            wind={data.wind}
+            city={data.name}
+        />}
         <StatusBar barStyle="dark-content"/>
       </View>
   );
