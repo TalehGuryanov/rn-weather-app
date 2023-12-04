@@ -1,0 +1,17 @@
+export const WEATHER_CONDITIONS = [
+    "Thunderstorm",
+    "Drizzle",
+    "Rain",
+    "Snow",
+    "Mist",
+    "Smoke",
+    "Haze",
+    "Dust",
+    "Sand",
+    "Fog",
+    "Ash",
+    "Squall",
+    "Tornado",
+    "Clear",
+    "Clouds",
+]

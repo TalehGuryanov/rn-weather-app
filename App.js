@@ -3,17 +3,19 @@ import * as Location from 'expo-location';
 import {Loading} from "./components/Loading";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {Weather} from "./components/Weather";
 
 const API_KEY = "40fe69bd29808302d733b9ad75ef9a62";
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState({});
   
   const getWeather = async (latitude, longitude) => {
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
     const {data} = await axios.get(url);
   
-    console.log(data)
+    setData(data);
   }
   
   useEffect(() => {
@@ -38,7 +40,7 @@ export default function App() {
   
   return (
       <View style={styles.container}>
-        {isLoading ? <Loading/> : null}
+        {isLoading ? <Loading/> : <Weather temp={Math.round(data.main.temp)} condition={data.weather[0].main}/>}
         <StatusBar barStyle="dark-content"/>
       </View>
   );
@@ -47,6 +49,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fdf6aa',
   },
 })
